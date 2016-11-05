@@ -10,7 +10,7 @@
   <groupId>com.github.gwtmaterialdesign</groupId>
   <artifactId>gwt-material-errai-archetype</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>maven-archetype</packaging>
+  <packaging>jar</packaging>
 
   <name>gwt-material-errai-archetype</name>
 
