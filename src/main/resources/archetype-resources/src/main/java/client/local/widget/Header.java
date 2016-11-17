@@ -20,39 +20,29 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.client.local;
+package ${package}.client.local.widget;
 
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.RootPanel;
-import ${package}.client.local.widget.Header;
-import ${package}.client.local.widget.Main;
-import ${package}.client.local.widget.SideNav;
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.nav.client.local.Navigation;
+import gwt.material.design.client.constants.NavBarType;
+import gwt.material.design.client.ui.MaterialNavBar;
+import gwt.material.design.client.ui.MaterialNavBrand;
+import org.jboss.errai.ui.shared.api.annotations.DataField;
+import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-@EntryPoint
-public class Client extends Composite{
+@Templated
+public class Header extends Composite {
 
     @Inject
-    Navigation navigation;
-
-    @Inject
-    Header header;
-
-    @Inject
-    SideNav sideNav;
-
-    @Inject
-    Main content;
+    @DataField
+    MaterialNavBar navBar;
 
     @PostConstruct
-    public void init() {
-        content.getContainer().add(navigation.getContentPanel());
-        RootPanel.get().add(header);
-        RootPanel.get().add(sideNav);
-        RootPanel.get().add(content);
+    protected void init() {
+        navBar.setActivates("sideNav");
+        navBar.setType(NavBarType.FIXED);
+        navBar.add(new MaterialNavBrand("App Title"));
     }
 }

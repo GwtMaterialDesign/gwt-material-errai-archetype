@@ -20,39 +20,36 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.client.local;
+package ${package}.client.local.widget;
 
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.RootPanel;
-import ${package}.client.local.widget.Header;
-import ${package}.client.local.widget.Main;
-import ${package}.client.local.widget.SideNav;
-import org.jboss.errai.ioc.client.api.EntryPoint;
-import org.jboss.errai.ui.nav.client.local.Navigation;
+import com.google.inject.Inject;
+import gwt.material.design.client.constants.IconType;
+import gwt.material.design.client.constants.SideNavType;
+import gwt.material.design.client.ui.MaterialLink;
+import gwt.material.design.client.ui.MaterialSideNav;
+import org.jboss.errai.ui.shared.api.annotations.DataField;
+import org.jboss.errai.ui.shared.api.annotations.Templated;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
-@EntryPoint
-public class Client extends Composite{
-
-    @Inject
-    Navigation navigation;
+@Templated
+public class SideNav extends Composite {
 
     @Inject
-    Header header;
-
-    @Inject
-    SideNav sideNav;
-
-    @Inject
-    Main content;
+    @DataField
+    MaterialSideNav sideNav;
 
     @PostConstruct
-    public void init() {
-        content.getContainer().add(navigation.getContentPanel());
-        RootPanel.get().add(header);
-        RootPanel.get().add(sideNav);
-        RootPanel.get().add(content);
+    protected void init() {
+        sideNav.setId("sideNav");
+        sideNav.setType(SideNavType.PUSH);
+        sideNav.setWidth(280);
+        sideNav.reinitialize();
+        for (int i = 1; i <= 3; i++) {
+            MaterialLink link = new MaterialLink("Item " + i);
+            link.setIconType(IconType.POLYMER);
+            sideNav.add(link);
+        }
     }
 }
