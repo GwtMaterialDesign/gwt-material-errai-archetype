@@ -22,8 +22,10 @@
 #set( $symbol_escape = '\' )
 package ${package}.client.local;
 
+import com.google.gwt.dom.client.StyleInjector;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
+import ${package}.client.local.resources.AppClientBundle;
 import ${package}.client.local.widget.Header;
 import ${package}.client.local.widget.Main;
 import ${package}.client.local.widget.SideNav;
@@ -50,6 +52,7 @@ public class Client extends Composite{
 
     @PostConstruct
     public void init() {
+        StyleInjector.inject(AppClientBundle.INSTANCE.appCss().getText());
         content.getContainer().add(navigation.getContentPanel());
         RootPanel.get().add(header);
         RootPanel.get().add(sideNav);
