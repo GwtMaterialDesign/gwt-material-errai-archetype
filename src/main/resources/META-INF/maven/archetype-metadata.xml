@@ -29,6 +29,7 @@
         <include>**/*.java</include>
         <include>**/*.xml</include>
         <include>**/*.html</include>
+        <include>**/*.css</include>
       </includes>
     </fileSet>
     <fileSet filtered="true" encoding="UTF-8">
