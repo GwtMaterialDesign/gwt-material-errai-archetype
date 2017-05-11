@@ -27,7 +27,7 @@ import com.google.inject.Inject;
 import gwt.material.design.client.constants.IconType;
 import gwt.material.design.client.constants.SideNavType;
 import gwt.material.design.client.ui.MaterialLink;
-import gwt.material.design.client.ui.MaterialSideNav;
+import gwt.material.design.client.ui.MaterialSideNavPush;
 import org.jboss.errai.ui.shared.api.annotations.DataField;
 import org.jboss.errai.ui.shared.api.annotations.Templated;
 
@@ -38,12 +38,11 @@ public class SideNav extends Composite {
 
     @Inject
     @DataField
-    MaterialSideNav sideNav;
+    MaterialSideNavPush sideNav;
 
     @PostConstruct
     protected void init() {
         sideNav.setId("sideNav");
-        sideNav.setType(SideNavType.PUSH);
         sideNav.setWidth(280);
         sideNav.reinitialize();
         for (int i = 1; i <= 3; i++) {
