@@ -42,7 +42,6 @@ public class Header extends Composite {
     @PostConstruct
     protected void init() {
         navBar.setActivates("sideNav");
-        navBar.setType(NavBarType.FIXED);
         navBar.add(new MaterialNavBrand("App Title"));
     }
 }
