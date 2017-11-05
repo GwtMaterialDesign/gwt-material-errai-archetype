@@ -1,7 +1,7 @@
 # gwt-material-errai-archetype
 A GWT Material Errai Archetype that provides easy creation of gwt-material projects with Errai Framework
 
-# Current Version - 2.0-rc7
+# Current Version - 2.0
 ### Includes
 - gwt-material 2.0
 - gwt-material-addins 2.0
