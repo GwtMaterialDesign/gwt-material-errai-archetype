@@ -44,7 +44,7 @@ public class SideNav extends Composite {
     protected void init() {
         sideNav.setId("sideNav");
         sideNav.setWidth(280);
-        sideNav.reinitialize();
+        sideNav.reload();
         for (int i = 1; i <= 3; i++) {
             MaterialLink link = new MaterialLink("Item " + i);
             link.setIconType(IconType.POLYMER);
